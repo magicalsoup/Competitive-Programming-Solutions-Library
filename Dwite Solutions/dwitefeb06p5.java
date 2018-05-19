@@ -7,8 +7,8 @@ public class dwitefeb06p5{
             int a =scan.nextInt();
             int b = scan.nextInt();
             int count =0;
-            for(int i =a ;a<=b;a++)
-                if(prime(a)&&palindrome(a))
+            for(int i =a ;i<=b;i++)
+                if(prime(i)&&palindrome(i))
                     count++;
             System.out.println(count);
         }
@@ -25,8 +25,6 @@ public class dwitefeb06p5{
      public static boolean palindrome(int i){
          if(i<10) return true;
          String s= Integer.toString(i);
-         
-         boolean flag = true;
          for(int j=0;j<(s.length()+1)/2;j++){
              if(s.charAt(j)!=s.charAt(s.length()-j-1)) return false;
          }
