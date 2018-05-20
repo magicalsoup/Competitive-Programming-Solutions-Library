@@ -1,5 +1,5 @@
 # Competitive-Programming-Solutions
-  Solutions for various contest CCC, CCO, IOI.etc.  
+  Solutions for various contest CCC, CCO, NOI, Dwite, IOI .etc.  
   Websites - DMOJ, Wcipeg.  
-  Usernames - magicalsoup(wcipeg)- amagicalsoup4(DMOJ)  
+  Usernames - magicalsoup(wcipeg) - amagicalsoup4(DMOJ)  
    
