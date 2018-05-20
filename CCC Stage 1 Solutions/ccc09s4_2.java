@@ -1,3 +1,4 @@
+//faster reader and program then the first one
 import java.util.*;
 import java.io.*;
 
