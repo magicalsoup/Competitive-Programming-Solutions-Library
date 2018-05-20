@@ -1,1 +1,1 @@
-Inludes mockdwite from wcipeg, ecoo and normal DWITE
+Inludes ecoo(not qualifiers) and  normal DWITE(not mockdwite)
