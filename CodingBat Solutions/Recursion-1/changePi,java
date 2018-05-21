@@ -1,0 +1,4 @@
+public String changePi(String str) {
+  str = str.replaceAll("pi","3.14");
+  return str;
+}
