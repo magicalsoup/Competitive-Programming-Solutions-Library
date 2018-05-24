@@ -44,30 +44,22 @@ public static void main(String[]args) {
 				}
 			if(space=='/'){ // check if the mirror is facing this way '/'
 				if(leaf=='>') { 
-								//   ^
-					leaf = '^'; //   | 
-								//-->/
+					leaf = '^';  					     	
 					// leaf will face UP after hitting the mirror
 					db[i-1][j] = leaf; // DEBUG
 					}
 				else if(leaf=='<') {
-					leaf = 'v'; // /<--				
-								// |
-								// v
+					leaf = 'v'; 			
 					// leaf will face DOWN after hitting the mirror
 					db[i+1][j] = leaf; // DEBUG
 					}
 				else if(leaf=='^') {
-					leaf = '>'; // /-->
-								//  ^
-								//  |
+					leaf = '>';
 					// leaf will face RIGHT after hitting the mirror
 					db[i][j+1] = leaf; // DEBUG
 					}
 				else if(leaf=='v') {
-					leaf = '<'; //    |
-								//    v
-								// <--/
+					leaf = '<';
 					// leaf will face LEFT after hitting the mirror	
 					db[i][j-1] = leaf; // DEBUG
 					}
@@ -76,30 +68,22 @@ public static void main(String[]args) {
 			
 			else if(space==92) { //check if the mirror is this way '\'
 				if(leaf=='>') {
-					leaf = 'v'; // -->\
-								//	  |
-								//	  v
+					leaf = 'v';
 					//leaf will face DOWN after hitting the mirror
 					db[i+1][j] = leaf; // DEBUG
 					}
 				else if(leaf=='<') {
-					leaf = '^'; // ^
-								// |
-								// \<--
+					leaf = '^';
 					//leaf will face UP after hitting the mirror
 					db[i-1][j] = leaf; // DEBUG 
 					}
 				else if(leaf=='^') {
-					leaf = '<'; // <--\
-								//    ^
-								//    |
+					leaf = '<';
 					//leaf will face LEFT after hitting the mirror
 					db[i][j-1] = leaf; // DEBUG
 					}
 				else if(leaf=='v') {
-					leaf = '>'; // |
-								// v
-								// \-->
+					leaf = '>'; 
 					//leaf will face RIGHT after hitting the mirror
 					db[i][j+1] = leaf; // DEBUG
 					}
