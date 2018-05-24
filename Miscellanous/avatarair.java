@@ -1,5 +1,5 @@
 // took me a while, but yeah, finally figured it out, alot of explaining in this one
-// the notes are made for you peter to undestant :p
+// the notes are made for you peter and maybe jessica to undestand :p
 import java.util.Scanner;
 public class avatarair {
 	static Scanner sc = new Scanner(System.in); // whynot static?
