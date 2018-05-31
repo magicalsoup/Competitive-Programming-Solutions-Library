@@ -36,9 +36,6 @@ int find_subset(int l, int u, int *w_, int n, int *res) {
     }
   }
 }
-
-
-// BEGIN CUT
 int main() {
     int n, l, u;
     scanf("%d %d %d", &n, &l, &u);
