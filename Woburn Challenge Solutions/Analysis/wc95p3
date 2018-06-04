@@ -1,0 +1,17 @@
+The algorithm here is to go row by row from the top left corner and try to fit the smallest number (unique in that row and column) for 
+every square.
+
+If we happen get to a column in a row and find we cannot place a number, we must backtrack to previous columns and try again by placing 
+the next smallest number in that spot.
+
+For example:
+
+1 2 3 4 5
+2 1 4 3 _
+
+After placing the smallest possible number for each spot in row two, we find that we cannot place the last number (5) in the remaining
+spot, thus we must backtrack to the last column and change it.
+
+1 2 3 4 5
+2 1 4 5 3
+...
