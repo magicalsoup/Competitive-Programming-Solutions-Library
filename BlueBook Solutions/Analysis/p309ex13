@@ -1,0 +1,10 @@
+The only nontrivial part of this problem is the base conversion. There are various techniques to handle place value expressions. 
+Note that we actually have two conversions to accomplish here. One is the conversion of the operands from place value representation to 
+internal numeric representation; the other is the conversion of the result, the other way.
+
+To retrieve the value of a number expressed in a given base B, we add the numeric value of the last character to B times the value of the 
+rest of the number, terminating our recursion at a single-digit number or an empty string. For example, 3058 = 5 + 8×(308), and λ8 = 0 
+(empty string). To go the other way, we divide. To obtain the last digit of the result, we take the remainder on division by B, 
+and we append this to the end of the conversion of the quotient, recursively. For example, to express 123 in base 8, we first find 123 
+mod 8 = 3 and 123 div 8 = 15, so that we then recurse on 15 (ultimately obtaining "17") and append '3' to obtain "173". 
+Here the base case is a single-digit number (we can't use the empty string, because then we have to take care of the special case of 0).
