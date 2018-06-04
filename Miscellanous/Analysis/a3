@@ -1,0 +1,7 @@
+The version of this problem presented on the PEG Judge is very easy to solve. You just have to keep incrementing k until you get some 
+number whose cube ends in 888. A 64-bit integer type should be used to avoid overflow.
+
+The SPOJ problem from which this was taken, however, is somewhat more interesting. Here, k can be up to 2×1012, and it is required to 
+find the kth positive integer whose cube ends in 888. Clearly, this cannot be solved using the naive approach that works for the 
+easier version of the problem. You are recommended to try that problem. 
+(Hint: do you notice something about the outputs of your program for the easy PEG Judge version?)
