@@ -1,0 +1,4 @@
+There are many ways to solve this problem, none of which are necessarily "better" or "worse" than any others. For example, 
+filling out the grid using the input string, alternating between left-to-right and right-to-left, and then reading down the 
+columns and across the rows is the straightforward approach, and is a perfectly reasonable way to solve the problem. 
+The more ambitious among you might attempt to perform the decoding "in-place". 
