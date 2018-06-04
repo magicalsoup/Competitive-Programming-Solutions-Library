@@ -1,0 +1,8 @@
+The Canadian coin system lends itself to the greedy change algorithm. That is, we first determine the 
+greatest number of quarters that fits into the amount given, and we use exactly that many quarters; then we see how many dimes fit into 
+the remaining amount, and so on. Printing the answer is the only tricky part: we have to keep in mind three rules:
+
+If there are none of a given coin used, don't mention the coin.
+If there is only one of a given coin used, use the singular.
+The last coin mentioned should be followed by a period, not a comma.
+There are many ways to satisfy these rules; see any of the accepted solutions for details.
