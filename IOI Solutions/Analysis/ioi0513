@@ -1,0 +1,52 @@
+The 50% solution is surprisingly easy to write for this problem. Maintain an array of size n in which the ith element represents the 
+elevation change over the ith rail. When an I instruction is received, update the specified elements in the array directly. 
+When Q is received, just simulate a ride starting from the first rail and stopping when height h is reached. Each line of input takes O(n) 
+time to process, for a total time of O(nQ), or about 20 million operations, which is reasonable.
+The 100% solution, however, is significantly more involved.
+
+First of all, consider the problem in which n is allowed to be up to 109 but the total number of queries is still restricted to 1000. 
+Then, we may use the classic technique of coordinate compression: regardless of how large n actually is, there are at most 2Q points at 
+which reconfiguration ever really occurs. So we read in and store the entire input initially, sort all the interval endpoints, and 
+compress the coordinates. This only complicates the code slightly; when we query, we must remember, when scanning through the array, to 
+multiply each elevation change by the number of rails over which it actually extends, and that the actual last rail we'll encounter might 
+be between two of the endpoints given in the input (in which case we simply interpolate). This requires an initial sort, which takes 
+O(Q log Q) time, two binary searchen per query (for an additional O(Q log Q), and up to linear time per query/modification for iterating 
+through the array, so overall the solution is O(Q2). That is, we can obtain a time bound independent of the value of n. We now concentrate 
+on how to obtain an O(Q lg Q) solution in this way.
+
+Thus, again we will begin by compressing the coordinates, and we'll now pretend, for the sake of simplicity, that we hadn't had to do so 
+(but the details can easily be filled in). That is, when the word "rail" is used, it actually refers to an elementary interval of rails 
+(an interval bounded by two adjacent endpoints given in the input). Let us now cast the problem in a more abstract form: given is an array
+of integers, all initially zero, and a series of operations to be executed one after another. A modification operation sets all entries in 
+a given range to a given value. Let Pi denote the prefix of the array of length i (that is, the first i entries of the array). 
+Let MPS(S) represent the maximum prefix sum within the sequence S. (For example, the maximum prefix sum of [1,-2,3,-4] is the maximum of 
+the values (1), (1-2), (1-2+3), and (1-2+3-4), which turns out to be 2.) A query then asks us to find the maximum value of i such that 
+MPS(Pi) ≤ h. (This is because the MPS of the first j rails tells us the highest point within those rails, assuming the first rail starts 
+at elevation zero.)
+
+We could binary search, since the function MPS(Pi) is clearly non-decreasing. However, we need an efficient means to calculate the MPS, 
+keeping in mind that elements may be modified willy-nilly. The segment tree turns out to be the solution to our problem. 
+The MPS of an interval consisting of a single rail is that rail's elevation change if it is positive, or zero if it is negative. 
+Now consider the concatenation of two intervals; the MPS of the large interval consists of either only the elements from the left 
+sub-interval, in which case it is just the MPS of the left sub-interval, or it consists of all the elements from the left sub-interval 
+plus the MPS of the right sub-interval. Thus, we maintain a segment tree of our array, which in each node stores both the sum and the MPS 
+of the corresponding interval.
+
+A query can now be made in O(lg Q) time by walking down the tree. We start at the root node and consider its left child, which is 
+responsible for the left half of the array. If the MPS of the left half is less than or equal to h, then we can traverse the entire 
+first half of the track. When this happens, our height on entering the second half of the track will be the sum S of the elements from 
+the first half of the array, and the problem now reduces recursively to determining how far we'll go along the right half of the track 
+if we can't go any higher than h-S, and we now recursively consider the root's right subtree. Otherwise, we recursively consider the 
+root's left subtree, because we know we'll have to stop somewhere in there.
+
+The modification operation is tricky and it complicates the query as well. Because we can modify an entire interval, which could 
+require changing linearly many leaf nodes of the segment tree, we must employ lazy propagation. This means that if a given node's 
+responsibility interval is entirely contained within the modification interval (that is, every element in that interval must be set to 
+the same value), we don't recurse any deeper on that node, and instead simply set a "lazy" field on that node that reminds us that all 
+the elements in the responsibility interval are supposed to have that value. If we do this then we only have to touch logarithmically 
+many nodes on each modification. If we later have to recurse below that node for a modification operation that doesn't cover the entire 
+interval, we reset that node's lazy field to some null sentinel value and propagate it to its two children 
+(meaning that we set its two children's lazy fields to that value), and then recurse as before. 
+(This complicates the query operation because now we have to check the lazy field and, if it is set, use it instead of the 
+cached sum/MPS values.) And don't forget that not all rails have the same width (because of the coordinate compression). 
+If you make a mistake with even one of these details your solution will probably earn fewer points than the naive solution. 
