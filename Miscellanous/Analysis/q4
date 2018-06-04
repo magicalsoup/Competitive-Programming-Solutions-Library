@@ -1,0 +1,20 @@
+This is a rather simple question, involving 2-d arrays.
+
+First, you’re always going to have 4 rows and 4 columns of X's or O's, so, just set your 2-d array, grid, to [1..4,1..4] of char (X or O).
+
+After you read grid in, check to see if each row or column are all X's. If there is at least one row or column of all X's, 
+then check is true. If there are any diagonals then check is true as well. There can only be 2 diagonals, from the top-right of the grid 
+to the bottom left, or from the top-left to the bottom-right. So, to implement this into your code,
+
+
+For i:=1 to 4 do
+  If grid[i,1]='X' and grid[i,2]='X', etc. then
+    check:=true;
+For i:=1 to 4 do
+  If grid[1,i]='X' and grid[2,i]='X' then
+    check:=true;
+If grid[1,1]='X' and grid[2,2]='X' and grid[3,3]='X' and grid[4,4]='X' {to check diagonals} then
+  check:=true;
+If grid[1,4]='X' and grid[2,3]='X' and grid[3,2]='X' and grid[4,1]='X' {another diagonal} then
+  check:=true;
+Now this part is easy. If check is true then output ‘Yes’. If check is false then output ‘No’.
