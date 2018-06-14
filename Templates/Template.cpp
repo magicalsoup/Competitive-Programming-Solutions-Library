@@ -21,6 +21,8 @@ using namespace std;
 typedef long long ll;
 typedef pair<int, int> pi;
 typedef pair<ll, ll> pll;
-int main(){
-return 0;
-}
+
+  int main(){
+    
+    return 0;
+ }
