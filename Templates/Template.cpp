@@ -4,6 +4,23 @@
 #include<algorithm>
 #include<cstdio>
 #include<cstring>
+#include<queue>
+#include<map>
+#include<cassert>
+#include<assert.h>
+#include<cmath>
+#include<random>
+#include<vector>
+#include<bitset>
+#include<set>
+#include<numeric>
+#include<functional>
+#include<cstdlib>
+#include<ctime>
+#include<list>
+#include<deque>
+#include<stack>
+#include<sstream>
 #include<math.h>
 #define mp make_pair
 #define pb push_back
