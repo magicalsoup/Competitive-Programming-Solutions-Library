@@ -51,7 +51,7 @@ public class ioi0721{
     out.close();
   }
 
-  private static int getValue (int x, int y, int z) {
+  public static int getValue (int x, int y, int z) {
     int sol = 0;
     if (x == 1 || y == 1 || z == 1)
       sol++;
