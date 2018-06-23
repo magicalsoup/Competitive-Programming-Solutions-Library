@@ -51,4 +51,4 @@ Once we've added as many definition alternatives to the heap as possible without
 from the heap, and visit the corresponding symbol.
 
 Last but not least, this question requires the use of bignums inorder to store the result, so either use the already built-in classes
-in java, and python, or create your own in c++ and other languages that don't support bignums
+like in java, and python, or create your own in c++ and other languages that don't support bignums
