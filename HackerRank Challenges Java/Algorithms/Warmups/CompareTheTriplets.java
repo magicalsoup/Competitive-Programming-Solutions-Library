@@ -1,5 +1,4 @@
 import java.util.*;
-import java.io.*;
 public class CompareTheTriplets {
 
 	    static List<Integer> compareTriplets(List<Integer> a, List<Integer> b) {
@@ -17,7 +16,7 @@ public class CompareTheTriplets {
 	    	return List;
 	    }
 
-	    public static void main(String[] args) throws IOException {
+	    public static void main(String[] args) {
 	        Scanner sc = new Scanner(System.in);
 	        List<Integer> Alice = new ArrayList<Integer>();
 	        List<Integer> Bob = new ArrayList<Integer>();
