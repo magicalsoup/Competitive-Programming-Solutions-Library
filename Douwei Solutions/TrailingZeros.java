@@ -1,3 +1,4 @@
+package Douwei;
 import java.util.*;
 public class TrailingZeros {
 	public static void main(String[]args){
