@@ -1,3 +1,4 @@
+package Douwei;
 import java.util.*;
 public class FindTheSumOnTheTree {
 	static ArrayList<ArrayList<Integer>> adj;
@@ -39,6 +40,16 @@ public class FindTheSumOnTheTree {
 		for(int i = 0; i<n-1;i++){
 			int a = sc.nextInt()-1;
 			int b = sc.nextInt()-1;
+			adj.get(a).add(b);
+			adj.get(b).add(a);
 		}
+		for(int  i =0;i<n;i++) {
+			dp[i][0] = -1;
+			dp[i][1] = -1;
+		}
+		for(int i =0; i<n;i++) {
+			coins[i] = sc.nextInt();
+		}
+		System.out.println(dfs(0,1,-1));
 	}
 }
