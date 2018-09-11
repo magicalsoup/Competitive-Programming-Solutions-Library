@@ -1,3 +1,4 @@
+package Douwei;
 import java.util.*;
 public class IsItATree {
 	static boolean visited[];
