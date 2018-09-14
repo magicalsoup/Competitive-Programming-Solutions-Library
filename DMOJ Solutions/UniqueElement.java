@@ -1,5 +1,5 @@
 import java.util.*;
-public class set {
+public class UniqueElement {
 	public static void main(String[]args) {
 		Scanner sc = new Scanner(System.in);
 		ArrayList<Integer> list = new ArrayList<Integer>();
