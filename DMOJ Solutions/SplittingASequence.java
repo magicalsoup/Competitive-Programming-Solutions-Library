@@ -4,8 +4,6 @@ import java.io.*;
       static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
       static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
       static StringTokenizer st;
-      static long min = -1;
-      static long ans = Integer.MAX_VALUE;
       public static void main(String[]args) throws IOException{
     	 int n = readInt(), k = readInt(); long a[] = new long[n]; long max = -1; long sum = 0;
     	 for(int i = 0; i < n; i++) {a[i] = readLong(); max = Math.max(max, a[i]); sum += a[i];}
