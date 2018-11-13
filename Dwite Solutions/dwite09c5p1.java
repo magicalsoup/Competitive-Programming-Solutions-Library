@@ -1,6 +1,6 @@
 import java.util.*;
 import java.io.*;
-   public class Dwite{
+   public class dwite09c5p1{
       static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
       static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
       static StringTokenizer st;
