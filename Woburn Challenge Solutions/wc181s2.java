@@ -7,7 +7,7 @@ import java.io.*;
       public static void main(String[]args) throws IOException{
     	  int w = readInt(); 
     	  for(char i = 'a' - 1; i <= 'z'; i++) {
-    		  for(char j = (char) ('a' - (i < 'i'? 1 : 0)); j <= 'z'; j++) {
+    		  for(char j = (char) ('a' - (i < 'a'? 1 : 0)); j <= 'z'; j++) {
     			  for(char k = 'a'; k <= 'z'; k++) {
     				  if(i >= 'a') pw.print(i);
     				  if(j >= 'a') pw.print(j);
