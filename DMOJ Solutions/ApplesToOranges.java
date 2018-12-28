@@ -11,14 +11,23 @@ public class ApplesToOranges{
     	  for(int i = 0; i < m; i++) {int u = getNodeId(next()), v = getNodeId(next()); double c = readDouble(); edges[i] = new Edge(u, v, c);}
     	  double shop[] = new double[n];
     	  int st = getNodeId("APPLES"); shop[st] = 1;
-    	  bfs(edges, shop, n); double prev = shop[st]; bfs(edges, shop, n);
-    	  if(shop[st] - prev > 0.1) pw.println("YA");
+    	  if(bfs(st, edges, shop, n)) pw.println("YA");
     	  else pw.println("NAW"); pw.close();
       }
-      static void bfs(Edge edges[], double shop[], int n) {
-    	  for(int i = 0; i < n; i++)
-    		  for(Edge e : edges) 
-    			  shop[e.dest] = Math.max(shop[e.dest], shop[e.src] * e.weight);
+      static boolean bfs(int st, Edge edges[], double shop[], int n) {
+    	  LinkedList<Integer> q = new LinkedList<Integer>();
+    	  q.add(st);
+    	  while(!q.isEmpty()) {
+    		  int cur = q.poll();
+    		  if(shop[cur] > 1.01 && cur == st) return true;
+    		  for(Edge e : edges) { 
+    			  if(shop[e.dest] < shop[e.src] * e.weight) {
+    				  shop[e.dest] = shop[e.src] * e.weight;
+    				  q.add(e.dest);
+    			  }
+    		  }
+    	  }
+    	  return false;
       }
       static class Edge{
     	  int src, dest; double weight;
