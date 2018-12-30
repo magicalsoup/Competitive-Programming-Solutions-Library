@@ -1,2 +1,9 @@
-Files are labeled by name, year, question number --> noi97p3 --> noi 1997 question 3  
-These are NOI, china solutions
+# NOI Solutions
+> These are NOI, china problems
+
+## Files are labeled by name, year, question number
+> noi97p3 --> noi 1997 question 3  
+
+## Clarifications
+> go to WCIPEG for further clarifications
+
