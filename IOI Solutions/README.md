@@ -4,4 +4,4 @@
 > eg. ioi0613 --> ioi 2006 day 1 question 3
 
 ## Clarifications
-> For Clarification, go to WCIPEG and see the codes to match the file that you want
+> For Clarification, go to [WCIPEG](https://wcipeg.com/main) and see the codes to match the file that you want
