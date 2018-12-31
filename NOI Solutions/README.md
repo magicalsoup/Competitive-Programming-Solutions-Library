@@ -5,5 +5,5 @@
 > noi97p3 --> noi 1997 question 3  
 
 ## Clarifications
-> go to WCIPEG for further clarifications
+> go to [WCIPEG](https://wcipeg.com/main) for further clarifications
 
