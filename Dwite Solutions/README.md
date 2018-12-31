@@ -5,5 +5,5 @@
 > May include mock or qualifiers
 
 ## Clarifications
-> Look in DMOJ and/or WCIPEG about codes and further clarifications
+> Look in [DMOJ](https://dmoj.ca/)  and/or [WCIPEG](https://wcipeg.com/main) about codes and further clarifications
 
