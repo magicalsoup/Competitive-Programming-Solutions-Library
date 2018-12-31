@@ -6,4 +6,4 @@
 judge or you will get runtime errors
 
 ## Clarifications
-> Look in Hackerrank for further clarifications
+> Look in [Hackerrank](https://www.hackerrank.com/) for further clarifications
