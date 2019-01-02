@@ -1,143 +1,38 @@
 import java.util.*;
 public class ccc16s3{
-	static boolean[] pho, visted;
-	static int count,longest;
-	static int[][]g;
-	static int[] a,b,deg;
+	static int dis[], n, p, l, rt, cnt = 0;
+	static boolean pho[];
+	static ArrayList<ArrayList<Integer>> g = new ArrayList<ArrayList<Integer>>(), g2 = new ArrayList<ArrayList<Integer>>();
 	public static void main(String[]args) {
-	Scanner sc = new Scanner(System.in);
-	int n =sc.nextInt();
-	int m = sc.nextInt();
-	int x =-1;
-	pho = new boolean[n];
-	for(int i=0;i<m;i++)
-	{
-		int j = sc.nextInt();
-		pho[j] = true;
-		x =j;
+		Scanner sc = new Scanner(System.in);
+		n = sc.nextInt(); p = sc.nextInt(); dis = new int[n + 1]; pho = new boolean[n + 1];
+		for(int i = 0; i <= n;i ++) {g.add(new ArrayList<Integer>()); g2.add(new ArrayList<Integer>());}
+		for(int i = 0; i < p; i++) {
+			rt = sc.nextInt(); pho[rt] = true;
+		}
+		for(int i = 1; i < n; i++) {
+			int x = sc.nextInt(), y = sc.nextInt();
+			g.get(x).add(y); g.get(y).add(x);
+		}
+		tree_prunning(rt, -1);
+		Arrays.fill(dis, 0); l = 0;
+		dfs(rt, - 1);
+		System.out.println(2 * cnt - l); sc.close();
 	}
-	g = new int[n][];
-	deg = new int[n];
-	 a = new int[n-1];
-	 b= new int[n-1];
-	 for(int i=0;i<n-1;i++)
-	 {
-		 a[i] = sc.nextInt();
-		 b[i] = sc.nextInt();
-		 deg[a[i]]++;
-		 deg[b[i]]++;
-	 }
-	 for(int i=0;i<n;i++)
-		 g[i] = new int[deg[i]];
-		 for(int i=0;i<n-1;i++)
-	 {
-			 deg[a[i]]--;
-			 deg[b[i]]--;
-		 g[a[i]][deg[a[i]]]=b[i];
-		 g[b[i]][deg[b[i]]] =a[i];
-	 }
-		 visted = new boolean[n];
-		 int[]node = new int[n];
-		 int[] order = new int[n];
-		 
-		 int[]st = new int[n];
-		 int size = 1;
-		 st[0]= x;
-		 int pos;
-		 for(int i=0;i<n;i++)
-		 {
-			 size--;
-			 pos = st[size];
-			 node[i] = pos;
-			 visted[pos] = true;
-			 order[pos] = i;
-			 for(int k=0;k<g[pos].length;k++)
-			 {
-				 int j = g[pos][k];
-				 if(!visted[j])
-				 {
-					 st[size]=j;
-					 size++;
-				 }
-			 }
-		 }
-		 a = new int[n-1];
-		 b = new int[n-1];
-		 count =0;
-		 visted = new boolean[n];
-		 for(int i=n-1;i>=0;i--)
-		 {
-			 pos = node[i];
-			 for(int k=0;k<g[pos].length;k++)
-			 {
-				 int j = g[pos][k];
-				 if(order[j]>order[pos]&&pho[j])
-				 {
-					 a[count] = pos;
-					 b[count] =j;
-					 deg[pos]++;
-					 deg[j]++;
-					 count++;
-					 pho[pos]= true;
-				 }
-			 }
-		 }
-		 for(int i=0;i<n;i++)
-			 g[i] = new int[deg[i]];
-		 for(int i=0;i<count;i++)
-		 {
-			 deg[a[i]]--;
-			 deg[b[i]]--;
-			 g[a[i]][deg[a[i]]] = b[i];
-			 g[b[i]][deg[b[i]]] = a[i];
-		 }
-		 visted = new boolean[n];
-		 st = new int[n];
-		 size = 1;
-		 st[0] = x;
-		 for(int i=0;i<=count;i++)
-		 {
-			 size--;
-			 pos = st[size];
-			 node[i] = pos;
-			 visted[pos] = true;
-			 order[pos] = i;
-			 for(int k=0;k<g[pos].length;k++)
-			 {
-				 int j = g[pos][k];
-				 if(!visted[j])
-				 {
-					 st[size] =j;
-					 size++;
-				 }
-			 }
-		 }
-		 longest = 0;
-		 int[] dist = new int[n];
-		 for(int i=count;i>=0;i--)
-		 {
-			 pos = node[i];
-			 int max1 = 0;
-			 int max2 =0;
-			 for(int k=0;k<g[pos].length;k++)
-			 {
-				 int j = g[pos][k];
-				 if(order[j]>order[pos])
-				 {
-					 int d = dist[j];
-					 if(d>max1)
-					 {
-						 max2 = max1;
-						 max1 = d;
-					 }
-					 else if(d>max2)
-						 max2 = d;
-				 }
-			 }
-			 if(max1+max2>longest)
-				 longest = max1+max2;
-			 dist[pos] = max1+1;
-		 }
-		 System.out.println(2*count-longest);
+	static void tree_prunning(int u, int par) {
+		if(par != -1) dis[u] = dis[par] + 1;
+		if(dis[u] > l && pho[u]) {l = dis[u]; rt = u;}
+		for(int v : g.get(u)) {
+			if(v == par) continue;
+			tree_prunning(v, u);
+			if(!g2.get(v).isEmpty() || pho[v]) { g2.get(u).add(v); g2.get(v).add(u); cnt++;}
+		}
+	}
+	static void dfs(int u, int par) {
+		if(par != -1) { dis[u] = dis[par] + 1; l = Math.max(l, dis[u]);}
+		for(int v : g2.get(u)) {
+			if(v == par) continue;
+			dfs(v, u);
+		}
 	}
 }
