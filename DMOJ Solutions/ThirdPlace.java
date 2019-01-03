@@ -1,105 +1,49 @@
-import java.util.*;
 import java.io.*;
-public class ThirdPlace {
-    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-    static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
-    static StringTokenizer st;
-	static ArrayList<ArrayList<pair>> adj = new ArrayList<ArrayList<pair>>();
-	static int dist[];
-	static boolean vis[];
-	static LinkedList<Integer> queue = new LinkedList<Integer>();
-	public static void main(String[]args) throws IOException{
-		int n = readInt();
-		int longest = -1;
-		long ans = -1;
-		int node = 0;
-		int prevNode = 0;
-		vis = new boolean[n + 1];
-		dist = new int[n + 1];
-		for(int i = 0; i < n; i++)
-			adj.add(new ArrayList<pair>());
-		
-		for(int i = 1; i < n; i++) {
-			int a = readInt() - 1;
-			int b = readInt() - 1;
-			int c = readInt();
-			adj.get(a).add(new pair(b, c));
-			adj.get(b).add(new pair(a, c));
-		}
-		bfs(0);
-		for(int i = 0; i < n; i++) {
-			if(dist[i] > longest) {
-				longest = dist[i];
-				node = i;	
-			}
-		}
-		bfs(node);
-		prevNode = node;
-		longest = -1;
-		for(int i = 0; i < n; i++) {
-			if(dist[i] >= longest) {
-				ans = longest;
-				longest = dist[i];
-				node = i;
-			}
-			else if(dist[i] >= ans) ans = dist[i];
-		}
-		bfs(node);
-		for(int i = 0; i < n; i++) {
-			if(dist[i] >= longest && (i ^ prevNode) != 0) {
-				ans = longest;
-				longest = dist[i];
-			}
-			else if(dist[i] >= ans && (i ^ prevNode) != 0) ans = dist[i];
-		}
-		pw.println(ans);
-		pw.close();
-	}
-	static void bfs(int src) {
-		Arrays.fill(dist, 0x3f3f3f3f);
-		Arrays.fill(vis, false);
-		vis[src] = true;
-		dist[src] = 0;
-		queue.add(src);
-		while(!queue.isEmpty()) {
-			int curr = queue.poll();
-			for(int i = 0; i < adj.get(curr).size(); i++) {
-				pair next = adj.get(curr).get(i);
-				if(!vis[next.first]) {
-					vis[next.first] = true;
-					dist[next.first] = dist[curr] + next.second;
-					queue.push(next.first);
-				}
-			}
-		}
-	}
-	static class pair{
-		int first;
-		int second;
-		public pair(int first, int second) {
-			this.first = first;
-			this.second = second;
-		}
-	}
-	 static String next () throws IOException {
-   	  while (st == null || !st.hasMoreTokens())
-   		  st = new StringTokenizer(br.readLine().trim());
-   	  return st.nextToken();
-     }
-     
-     static long readLong () throws IOException {
-   	  return Long.parseLong(next());
-     }
+import java.util.*;
 
-     static int readInt () throws IOException {
-   	  return Integer.parseInt(next());
-     }
-
-     static double readDouble () throws IOException {
-   	  return Double.parseDouble(next());
-     }
-     
-     static String readLine () throws IOException {
-   	  return br.readLine().trim();
-     } 
+public class Main {
+    static int N = 0, far = 0; static long len  = 0;
+    static ArrayList<E>adj[]; 
+    static long dis[], ans = 0;
+    public static void main(String[] args) throws IOException {
+        BufferedReader input;
+        input = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(input.readLine());  
+        N = Integer.parseInt(st.nextToken());
+        dis = new long[N+1];
+        adj = new ArrayList[N+1];
+        for(int i=0; i<=N; i++)adj[i] = new ArrayList<E>();
+        for(int i = 1; i<N; i++){
+            String a = input.readLine(); String[]arr = a.split(" ");
+            int u = Integer.parseInt(arr[0]); int v = Integer.parseInt(arr[1]); int w = Integer.parseInt(arr[2]);
+            adj[u].add(new E(v,w)); adj[v].add(new E(u,w));
+        }
+        BFS(1); 
+        int d1 = far; BFS(d1); int d2 = far;
+        for(int i=1; i<=N; i++)
+            if(i!=d2)ans = Math.max(ans, dis[i]);
+        BFS(d2);
+            for(int i = 1; i<=N; i++)
+                if(i!=d1)ans = Math.max(ans, dis[i]);
+            System.out.println(ans);
+    }
+    public static void BFS(int st){
+        boolean vis[] = new boolean[N+1];
+        len = 0;
+        Queue<Integer>Q = new LinkedList<Integer>();
+        Q.add(st); 
+        dis[st] = 0; 
+        vis[st] = true;
+        while(!Q.isEmpty()){
+            int cur = Q.poll();
+            if(dis[cur]>len){len = dis[cur]; far = cur;}
+            for(E e: adj[cur]){
+                if(!vis[e.v]){Q.add(e.v); vis[e.v] = true; dis[e.v] = dis[cur]+e.w;}
+            }
+        }
+    }
+    static class E{
+        int v,w;
+        E(int v0,int w0){v = v0; w = w0;}
+    }
 }
