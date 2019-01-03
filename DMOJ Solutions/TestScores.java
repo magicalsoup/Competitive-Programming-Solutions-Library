@@ -5,9 +5,9 @@ import java.io.*;
       static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
       static StringTokenizer st;
       public static void main(String[] args) throws Exception{
-    	  int n = readInt(), m = readInt(), k = readInt(), cnt = 0; Test t[] = new Test[n];
+    	  int n = readInt(), m = readInt(), k = readInt(); long cnt = 0; Test t[] = new Test[n];
     	  for(int i = 0; i < n; i++) { t[i] = new Test(readInt(), readInt()); cnt += t[i].score;}
-    	  if(cnt >= n * k) { pw.println(0); pw.close(); return;} int ans = 0; Arrays.sort(t);
+    	  if(cnt >= n * k) { pw.println(0); pw.close(); return;} long ans = 0; Arrays.sort(t);
     	  for(int i = 0; i < n; i++) {
     		  if(cnt + (m - t[i].score) <= n * k) {
     			  ans += (m - t[i].score) * t[i].hour;
