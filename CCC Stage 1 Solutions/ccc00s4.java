@@ -5,7 +5,7 @@ public class ccc00s4{
 		Scanner sc = new Scanner(System.in);
 		int d = sc.nextInt(), n = sc.nextInt(); int dp[] = new int[d + 1], v[] = new int[n];
 		for(int i = 0; i< n; i++) v[i] = sc.nextInt();
-		dp[0] = 0; Arrays.fill(dp, 0x3f3f3f3f);
+		Arrays.fill(dp, 0x3f3f3f3f); dp[0] = 0;
 		for(int i = 0; i < n; i++) {
 			for(int j = 1; j <= d; j++) {
 				if(v[i] <= j)
