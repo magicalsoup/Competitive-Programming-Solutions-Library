@@ -1,50 +1,59 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.StringTokenizer;
-
+import java.io.*;
+import java.util.*;
 public class ccc01s3 {
 
   static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+  static PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out));
   static StringTokenizer st;
-
+  static Map<Character, Integer> mp = new HashMap<Character, Integer>();
+  static boolean adj[][] = new boolean[100][100];
   public static void main (String[] args) throws IOException {
-    boolean[][] vertices;
-    ArrayList<String> s = new ArrayList<String>();
-
-    String road = next();
-    while (!road.equals("**")) {
-      s.add(road);
-      road = next();
-    }
-    int count = 0;
-    for (int t = 0; t < s.size(); t++) {
-      vertices = new boolean[26][26];
-      for (int k = 0; k < s.size(); k++) {
-        if (k != t) {
-          int a = s.get(k).charAt(0) - 65;
-          int b = s.get(k).charAt(1) - 65;
-          vertices[a][b] = true;
-          vertices[b][a] = true;
-        }
-
-      }
-      for (int x = 0; x < 26; x++) {
-        for (int y = 0; y < 26; y++) {
-          for (int z = 0; z < 26; z++) {
-            vertices[y][z] = vertices[y][z] || (vertices[x][z] && vertices[y][x]);
-          }
-        }
-      }
-      if (!vertices[0][1]) {
-        System.out.println(s.get(t));
-        count++;
-      }
-    }
-    System.out.printf("There are %d disconnecting roads.", count);
+	  ArrayList<String> nodes = new ArrayList<String>(), ans = new ArrayList<String>(); 
+	  for(char i = 'A'; i <= 'Z'; i++) mp.put(i, mp.size());
+	  while(true) {
+		  String str = next();
+		  if(str.equals("**")) break;
+		  char a = str.charAt(0), b = str.charAt(1);
+		  int u = nodeId(a), v = nodeId(b);
+		  adj[u][v] = true;
+		  adj[v][u] = true;
+		  nodes.add(str);
+	  }
+	  for(String i : nodes) {
+		  int a = nodeId(i.charAt(0)), b = nodeId(i.charAt(1));
+		  adj[a][b] = false;
+		  adj[b][a] = false;
+		  if(bfs(nodeId('A'), nodeId('B')) == false)
+			  ans.add(i);
+		  adj[a][b] = true;
+		  adj[b][a] = true;
+	  }
+	  for(String i : ans)
+		  pw.println(i);
+	  pw.println("There are " + ans.size() + " disconnecting roads.");
+	  pw.close();
   }
-
+  static boolean bfs(int s, int e) {
+	  LinkedList<Integer> q = new LinkedList<Integer>();
+	  boolean vis[][] = new boolean[100][100];
+	  q.add(s);
+	  while(!q.isEmpty()) {
+		  int cur = q.poll();
+		  for(int i = 0; i < adj[cur].length; i++) {
+			  if(adj[cur][i] && !vis[cur][i]) {
+				  q.add(i);
+				  vis[cur][i] = true;
+				  if(i == e || cur == e) return true;
+			  }
+		  }
+	  }
+	  return false;
+  }
+  static int nodeId(char c) {
+	  if(!mp.containsKey(c))
+		  mp.put(c, mp.size());
+	  return mp.get(c);
+  }
   static String next () throws IOException {
     while (st == null || !st.hasMoreTokens())
       st = new StringTokenizer(br.readLine().trim());
