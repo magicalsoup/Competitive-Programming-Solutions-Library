@@ -6,19 +6,19 @@ By direct comparison of substrings of equal length. We first examine substrings 
 We count the number of substrings of a certain length by comparing each pair to see if they are identical or not. 
 Each comparison potentially takes time proportional to the length; there are roughly O(n) substrings at each stage, and there are a 
 total of O(n) lengths - this gives, with some mathematical analysis, an O(n4) solution. This is only a worst-case analysis; 
-in the average case the time is likely to be closer to O(n3). Still, this simply will not run in time when n=1000.
+in the average case the time is likely to be closer to O(n<sup>3</sup>). Still, this simply will not run in time when n=1000.
 
 Similar to 1, but using a balanced binary search tree to determine whether or not a given substring already exists elsewhere in the string. 
 We should clear the tree every time we move on to a new length, because each each insert or query operation requires a number of 
-comparisons proportional to the logarithm of the number of items contained within. This gives an O(n3 log n) solution in the worst case; 
-in the average case it is closer to O(n2 log n), but with a rather large constant factor for the balanced tree and accessing elements 
+comparisons proportional to the logarithm of the number of items contained within. This gives an O(n<sup>3</sup> log n) solution in the worst case; 
+in the average case it is closer to O(n<sup>2</sup> log n), but with a rather large constant factor for the balanced tree and accessing elements 
 in the string container. Given the extremely liberal time limit, this runs in time for n=1000, but not for n=5000.
 Using an existence trie. A trie is a tree structure in which there exists a path from the root to an internal node for every substring it 
 contains. A full description of tries is too long for this analysis. With some thought it becomes evident that if we build an existence 
 trie with every substring, the total number of distinct substrings is equal to the number of nodes in the trie. We don't have to repeat 
 the insertion process with every substring; instead for the string "abcd" we would insert all suffixes: "abcd", "bcd", "cd", and "d". 
 Note that other substrings such as "bc" are contained inside these suffixes (in this case "abcd" and "bcd".) 
-This is an O(n2) solution in both time and space, which works without a hitch when n=1000. 
+  This is an O(n<sup>2</sup>) solution in both time and space, which works without a hitch when n=1000. 
 Unfortunately, the implementation details make it difficult not to exceed the memory limit 
 (the time limit is still no problem) when n=5000; special techniques are required.
 Using the longest common prefix array. This is the technique used by the author, and, in the random case, 
