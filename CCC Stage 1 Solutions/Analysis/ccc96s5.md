@@ -14,9 +14,11 @@ If we are at the index 3 in X and the current max is four (from the first 8 in X
 we immediately move the location at Y to (3 + 4 + 1) = 8 as any Y before Y[8] will yield a distance ≤ the current max which is of no use 
 to us.
 
+```
 Index:  0  1  2  3  4  5  6  7  8
 
                  -
 X |     8  8  4  4  4  3  3  3  1
 
 Y |     9  9  8  8  6  5  5  4  3
+```
