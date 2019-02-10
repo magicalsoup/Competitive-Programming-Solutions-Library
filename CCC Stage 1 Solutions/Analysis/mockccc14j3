@@ -21,7 +21,8 @@ flooring 0.5 plus the value. Once again, we modulo the answer by 60.
 Lastly, we print each number, separated by colons, to a field width of 2, and padded with leading zeros. 
 This can be done differently depending on your programming language.
 
-Official Solution (C++)
+```cpp
+
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -46,3 +47,4 @@ int main() {
 
   return 0;
 }
+```
