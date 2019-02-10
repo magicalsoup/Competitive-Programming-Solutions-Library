@@ -1,5 +1,5 @@
 This problem seems straightfoward at first sight, but the edge cases may be tricky to get. 
-The bounds are low enough that even an O(N2) algorithm would pass, however an O(N) algorithm is not necessarily harder to come up 
+The bounds are low enough that even an O(N<sup>2</sup>) algorithm would pass, however an O(N) algorithm is not necessarily harder to come up 
 with and implement. We keep a pointer which we will use to loop through the array. At every iteration, we increment our pointer while 
 values are decreasing, then while values are the same, then while values are increasing. If during this process the pattern does not hold, 
 we move on. At the end of the iteration, we check the length that we have incremented the pointer by and compare it with our best answer. 
@@ -9,7 +9,7 @@ very easy to make one-off errors.
 The following solution is more or less O(N), except, the failed sequence should be skipped over 
 (by moving the pointer forward appropriately) before the continue statements. This has been omitted for the sake of clarity.
 
-Official Solution (C++)
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -38,3 +38,4 @@ int main() {
   cout << maxlen << endl;
   return 0;
 }
+```
