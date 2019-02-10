@@ -7,5 +7,13 @@ buffer are a word, and we can either output **** (if it has four letters) or ech
 Then we empty the buffer. When we encounter a letter, we just add it to the end of the buffer.
 
 Actually, the easy way doesn't work in Pascal anyway, but it does work in C++: 
-read in words one at a time using ifstream::operator>> (i.e., cin). After reading each word, check 
-if the next character is a line feed (using getchar()). That indicates the end of the test case.
+read in words one at a time using 
+```cpp
+ifstream::operator>>
+```
+(i.e., cin). After reading each word, check 
+if the next character is a line feed 
+```cpp
+(using getchar()).
+```
+That indicates the end of the test case.
