@@ -6,7 +6,8 @@ travel to the other T−1 time settings. Each of these moves will add 1 to the t
 When we reach the 'B' square, we print our answer and stop the program. The maximum number of states to visit is O(T×R×C), 
 which is no greater than 10×100×100 = 100 000, and should easily pass in time.
 
-Official Solution (C++)
+```cpp
+
 #include <iostream>
 #include <queue>
 using namespace std;
@@ -61,3 +62,4 @@ int main() {
   cout << -1 << endl;
   return 0;
 }
+```
