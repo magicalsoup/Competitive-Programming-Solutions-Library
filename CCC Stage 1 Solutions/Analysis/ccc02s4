@@ -17,6 +17,7 @@ This allows us to get the best time to cross, but tells us nothing about how man
 Notice that since people must cross in the order they were lined up in the queue originally, we can characterize 
 how many people crossed at once with an array of integers. As well as the best[] array, we can keep another array who[][] telling us 
 the order people crossed.
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -60,3 +61,4 @@ int main()
    
     return 0;
 }
+```
