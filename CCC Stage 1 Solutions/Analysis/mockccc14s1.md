@@ -3,7 +3,8 @@ string to get the forward index of the reverse pattern in the text. Make sure to
 (in the implementation below, the 0-based indexing of C++'s string.find() and subtraction just happen to cancel out to a 1-based answer 
 without explicitly adding/subtracting 1 anywhere).
 
-Offical Solution:  //Note, this code does not work on wcipeg, please look at the java solution that I did
+```cpp
+//Note, this code does not work on wcipeg, please look at the java solution that I did
 #include <algorithm>
 #include <iostream>
 using namespace std;
@@ -22,3 +23,4 @@ int main() {
   }
   return 0;
 }
+```
