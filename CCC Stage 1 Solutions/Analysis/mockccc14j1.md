@@ -4,7 +4,7 @@ Then we see if half of A plus B is greater than R. If so, Bob overdoses on day 2
 then output that he never overdoses. The only thing to be careful with is when we divide A by 2, we must compare 
 the real number result to R, not the result of integer division.
 
-Official Solution (C++)
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -21,3 +21,4 @@ int main() {
   }
   return 0;
 }
+```
