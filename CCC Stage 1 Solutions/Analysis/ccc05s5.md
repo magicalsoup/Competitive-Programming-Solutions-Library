@@ -2,12 +2,12 @@ There are a number of ways to solve this problem. First note that we would like 
 1. insert,
 2. query the rank of the newly inserted element.
 
-1. By re-sorting the data every time a new element is added. Unfortunately, this takes O(n log n) time per element, or O(n2 log n) time, 
-and even radix sort gives O(n2) time (O(n) time per element)- too slow.
+1. By re-sorting the data every time a new element is added. Unfortunately, this takes O(n log n) time per element, or O(n<sup>2</sup> log n) time, 
+and even radix sort gives O(n<sup>2</sup>) time (O(n) time per element)- too slow.
 
-2. By using an O(n) insertion per element, as with insertion sort. This takes O(n2) time in the worst case, so it times out. 
+2. By using an O(n) insertion per element, as with insertion sort. This takes O(n<sup>2</sup>) time in the worst case, so it times out. 
 However, the time required can be cut by a factor of four by inserting from either the front or the back (whichever requires fewer 
-operations) by using a buffer that extends in both directions; while still O(n2) in the worst case, the judge computer is fast enough to 
+operations) by using a buffer that extends in both directions; while still O(n<sup>2</sup>) in the worst case, the judge computer is fast enough to 
 allow this solution to pass (and the average-case complexity is much improved).
 Note that this solution would probably fail the worst case during the actual CCC contest - however, it would certainly get more partial 
 marks than solution 1, if implemented correctly. See dAedaL's code for an implementation.
