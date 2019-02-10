@@ -6,5 +6,5 @@ If there is no path from the source node to the destination node, the trip is im
 gives the minimum amount of oxygen required to make the trip. We can find the weight of the shortest path by running a BFS from the 
 starting square, since every edge has a weight of either 0 or 1; to this end, we use a deque; every time we traverse an edge of weight 1 
 we add the next node to the end of the deque, and for edgen of weight 0 we add to the front of the deque. The first time we pop off the 
-destination square, we're done. The running time of this solution is O(n2), since this bounds the number of edgen in the graph. 
+destination square, we're done. The running time of this solution is O(n<sup>2</sup>), since this bounds the number of edges in the graph. 
 Slower solutions are also possible using, e.g., Dijkstra's algorithm.
