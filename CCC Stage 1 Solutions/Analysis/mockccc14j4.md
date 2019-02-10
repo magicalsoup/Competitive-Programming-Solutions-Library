@@ -5,6 +5,8 @@ if your programming language supports it, or you may simply convert the time to 
 For each range, you can then calculate the intersection with Bob's shift, and take the shift with the largest intersection. 
 Note that each of Alice's shifts may intersect (or not intersect) with Bob's shift in one of the following 6 ways:
 
+
+```
 Alice:  a1-------a2               Overlap: a2 - b1
 Bob:        b1--------b2
 
@@ -27,17 +29,22 @@ Bob:               b1-----b2
 
 Alice:             a1-----a2      Overlap: 0
 Bob:    b1-----b2
+
+```
 We calculate the overlap of Bob's shift with each of Alice's shifts, either by checking each of the cases above 
 (as shown in the implementation below), or using the formula:
 
+```
 intersection = (a2 − a1) + (b2 − b1) − (max(a2,b2) − min(a1,b1))
+```
 
 (length of Alice's shift + length of Bob's shift - union of both shifts). 
 Whenever we have an overlap that is strictly larger than the current best answer, we update the best answer. 
 This ensures that we select the earliest best answer in the input. In the end, if we have not found an overlap, 
 then we tell Alice to call in sick.
 
-Official Solution (C++)
+```cpp
+
 #include <iostream>
 #include <sstream>
 using namespace std;
@@ -103,3 +110,4 @@ int main() {
   }
   return 0;
 }
+```
