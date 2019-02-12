@@ -20,7 +20,7 @@ every coordinate. Doing otherwise (such as looping from 1 to N/2) may lead to mi
 vertical and horizontal line itself for when N is odd. Since there are N×N cells, our algorithm is O(N2). 
 Small constant-time optimizations like this is not going to be the difference between pass and fail when N is no greater than 1000.
 
-Official Solution (C++)
+```cpp
 
 #include <iostream>
 using namespace std;
@@ -51,3 +51,4 @@ int main() {
   cout << hsym + vsym + tlbr + trbl << endl;
   return 0;
 }
+```
