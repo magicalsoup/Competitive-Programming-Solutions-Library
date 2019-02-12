@@ -6,7 +6,7 @@ In particular, this is indeed the case: on row i, if we already know the exact s
 determine which possible subsets of the pies on row i we are able to eat: any subset that has no pie in the same column as one of the 
 eaten pies on the previous row, and has no two pies right next to each other in the row. So we can create a two-dimensional DP, where 
 DP[i][mask] stores the maximum possible sum of tastiness obtainable if we eat some subset of pies in rows i or less and the subset of pies
-in the ith row eaten is given by mask; and additionally stores the number of ways to achieve this maximum sum (modulo 10^9+7, of course).
+in the ith row eaten is given by mask; and additionally stores the number of ways to achieve this maximum sum (modulo 10<sup>9</sup>+7, of course).
 
 Now the base case is given by i=0 (or 1, depending on how you label the first row). In this row, all we have to do is enumerate all 
 allowable subsets of the pies that we can eat, and, for each one, directly compute the total tastiness and the mask. 
@@ -16,8 +16,8 @@ The transition is somewhat trickier to do. The idea of course is that for every 
 possible bitmasks in the previous row that are compatible with the one chosen for this row, in the sense defined earlier. 
 We then combine all the DP values for compatible bitmasks in the previous row. To combine two (total, count) pairs is easy: 
 if one has a greater total than the other, then the combined pair is just that pair itself. If the two have equal totals, 
-then the combined pair has the same total, but its count is the sum of the two individual counts (reduced modulo 10^9+7). 
-But naive techniques for computing the transition may result in a complexity of 4^C or 3^C, both of which are too slow. One technique that 
+then the combined pair has the same total, but its count is the sum of the two individual counts (reduced modulo 10<sup>9</sup>+7). 
+But naive techniques for computing the transition may result in a complexity of 4<sup>C</sup> or 3<sup>C</sup>, both of which are too slow. One technique that 
 works is to precompute a list of all bitmasks that have no two ones adjacent. There are Fc+2 of these, where Fi denotes a Fibonacci number.
 Then, when performing a transition, consider only those bitmasks on both the current and previous rows. This gives a complexity of ϕ2C or 
-about 2.6^C, which is able to pass.
+about 2.6<sup>C</sup>, which is able to pass.
