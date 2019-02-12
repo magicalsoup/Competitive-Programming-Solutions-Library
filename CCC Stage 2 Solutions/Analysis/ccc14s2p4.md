@@ -1,7 +1,7 @@
 Non-polynomial Time Algorithms
 
 You could try all N! permutations, and perform the simulation for each. Alternatively, there exist strange algorithms with time 
-complexities like O(N·2N), using DP on subsets.
+complexities like O(N·2<sup>N</sup>), using DP on subsets.
 
 Greedy Algorithm
 
