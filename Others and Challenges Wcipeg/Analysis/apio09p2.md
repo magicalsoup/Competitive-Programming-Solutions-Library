@@ -23,12 +23,12 @@ We need to speed this up to O(N lg N) to earn full marks. To do this, we will us
 time to logarithmic. That is, we determine the value of M first (we can do this in linear time after sorting, as discussed before), 
 then we try to accommodate client 1, and then client 2, and so on. In summary:
 
-  1.Sort the intervals given in input. (This time it actually doesn't matter if it's by beginning or ending time, but be consistent!)
-  2.Determine the value of M.
-  3.Assume that client 1 can be accommodated. What is the maximum total number of clients that can be accommodated now? Perform a query.
-  4.If the total number from step 3 is M, then client 1 can indeed be accommodated, and is added to the solution set. 
+  1. Sort the intervals given in input. (This time it actually doesn't matter if it's by beginning or ending time, but be consistent!)
+  2. Determine the value of M.
+  3. Assume that client 1 can be accommodated. What is the maximum total number of clients that can be accommodated now? Perform a query.
+  4. If the total number from step 3 is M, then client 1 can indeed be accommodated, and is added to the solution set. 
     Otherwise client 1 is rejected.
-  5.Find the smallest i such that client i has not yet been considered and client i's request interval does not overlap that of any 
+  5. Find the smallest i such that client i has not yet been considered and client i's request interval does not overlap that of any 
     client already in the solution set. If a value of i is found, go back to step 3, using i this time instead of 1. Otherwise, we are 
     done; print out the solution set. (We could also simply check whether the solution set contains M intervals.)
     
@@ -75,7 +75,7 @@ answer our query we can just determine how many times we can iterate the functio
 subsequence. To this end, we number the intervals in Σ (so that the leftmost is 1', the next leftmost is 2', and so on) and we compute, 
 for each i, the result of iterating f once, twice, four times, eight times, and so on up to N. Thus our table has O(N) rows and O(log N)
 columns. The first column can be computed in linear time with a pointer walk; computing the rest of the table is trivial; constant time 
-per entry gives O(N lg N) time overall for the sparse table generation. Our query to the sparse table is the question of how many times 
+per entry gives O(N log N) time overall for the sparse table generation. Our query to the sparse table is the question of how many times 
 we need to iterate f on interval i before we pass interval j (the right boundary of the subsequence of Σ). To answer this query,
 we determine the bits of the answer from highest to lowest, essentially walking towards j in step sizen that are decreasing powers of 2,
 using the sparse table data to perform each step in constant time, so the query takes logarithmic time overall.
@@ -83,13 +83,13 @@ using the sparse table data to perform each step in constant time, so the query 
 So we should add a step 1.5, which is to precompute the sparse table. (Okay, it could just as well be 2.5, but the total amount of code
 will be less if you use the sparse table to perform step 2.) Then step 3 can be expanded as follows:
 
-  1.Determine where the interval being tested resides in relation to the solution set; that is, determine whether it is at the left end 
+  1. Determine where the interval being tested resides in relation to the solution set; that is, determine whether it is at the left end 
     of the solution set, the right end of the solution set, or between two intervals in the solution set. We use the same dynamic set 
     we use in step 5 for this (no point in maintaining more than one).
-  2.Note that the intervals in the solution set split Σ up into contiguous subsequencen of intervals not overlapping the solution set, 
+  2. Note that the intervals in the solution set split Σ up into contiguous subsequencen of intervals not overlapping the solution set, 
     and that introducing the new interval, in general, further splits one of these subsequencen into two smaller ones. 
     Use binary search to find the endpoints of these two subsequencen.
-  3.Perform one query on each side, add the results, and add one (for the tested interval). Check if the answer is the same as the 
+  3. Perform one query on each side, add the results, and add one (for the tested interval). Check if the answer is the same as the 
     result of the query on the subsequence before splitting. (Note that the latter value can simply be stored in the set somewhere.)
   
 (A possible missing piece from this solution: how do we remove dominating intervals? It's not terribly difficult: sort them by starting 
