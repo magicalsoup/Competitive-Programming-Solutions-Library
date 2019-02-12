@@ -77,7 +77,7 @@ DFS will ensure that the second DFS produces a lexicographically different path,
 and also happens to use the smallest memory of all the solutions (having to store only the adjacency list and the two paths). 
 Below is the implementation in C++.
 
-
+```cpp
 #include <algorithm>
 #include <bitset>
 #include <cstdio>
@@ -137,6 +137,7 @@ int main() {
   printf(path1 == path2 ? "No\n" : "Yes\n");
   return 0;
 }
+```
 7. Biconnected Components - O(N+M)
 Let's discuss one last solution. Calvin Liu from Glenforest Secondary School and Daniel Hui from the University of Waterloo both 
 came up with this idea. A biconnected component of an undirected graph is a subgraph that has no articulation points, or cut 
@@ -153,7 +154,7 @@ The biconnected components can be computed in linear O(N+M) time using DFS. Once
 we can then DFS to find whether such a path exists. This solution is more complicated and memory hungry than approach 6, and can be 
 difficult to get right in an actual timed contest. Following is the official implementation of this method:
 
-
+```cpp
 #include <cstdio>
 #include <stack>
 #include <vector>
@@ -223,3 +224,4 @@ int main() {
   printf(DFS2(1, false) ? "Yes\n" : "No\n");
   return 0;
 }
+```
