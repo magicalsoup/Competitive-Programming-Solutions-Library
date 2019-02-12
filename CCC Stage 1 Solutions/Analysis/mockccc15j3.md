@@ -1,9 +1,9 @@
 Given a list of N values, we just want to count the number of distinct values in the list. 
-One way to do this is to just throw numbers into an std::set as they are inputted, and then just output the size of the set at the end. 
+One way to do this is to just throw numbers into an ```std::set``` as they are inputted, and then just output the size of the set at the end. 
 Another way is to note that the input values do not exceed 1000, so we just keep an array marking whether a value has been input, 
 and in the end just looping the array and counting. The second solution is implemented below.
 
-Official Solution (C++)
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -22,3 +22,4 @@ int main() {
   cout << ans << endl;
   return 0;
 }
+```
