@@ -4,7 +4,7 @@ merge sort, which is stable. In the implementation below, we store the rows as v
 To process the sorts, we define a special compare that only examines rows by the column that's being clicked at the time.
 
 ```cpp
-std::stable_sort()
+// std::stable_sort()
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -41,10 +41,12 @@ int main() {
   }
   return 0;
 }
-Even if we did not know about std::stable_sort(), we can easily implement an O(N2) bubble sort, which is stable and will run in 
+```
+Even if we did not know about std::stable_sort(), we can easily implement an O(N<sup>2</sup>) bubble sort, which is stable and will run in 
 time since N ≤ 100.
 
-Solution (C++) - Bubble Sort
+```cpp
+//Bubble Sort
 #include <algorithm>
 #include <iostream>
 #include <vector>
