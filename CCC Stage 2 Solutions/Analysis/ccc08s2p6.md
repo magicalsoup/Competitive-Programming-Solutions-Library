@@ -11,16 +11,16 @@ Then, iterating through all remaining points, checking whether or not any lie wi
 valid landing pad. The valid landing pad with largest radius gives the solution.
 
 As a set of N items has N nCr 3 = N(N-1)(N-2)/6 = O(N3) triplets, and we perform O(N) work for each of these 
-(since checking if a point is in a circle may be done in constant time), the asymptotic time complexity of this algorithm is O(N^4).
+(since checking if a point is in a circle may be done in constant time), the asymptotic time complexity of this algorithm is O(N<sup>4</sup>).
 
-When N = 50, N^4 is about 6 million, which should pass within one second. Thus, this solution should receive 25% of the points.
+When N = 50, N<sup>4</sup> is about 6 million, which should pass within one second. Thus, this solution should receive 25% of the points.
 
 95% solution, supposedly
 It is stated that in 95% of test data there are no more than 1000 trees, although on this judge this earns only 81% of the points.
-With N=1000, Õ(N2) is likely to pass. Here is one possible solution with this runtime complexity. First, there are simple bounds on the 
+With N=1000, Õ(N<sup>2</sup>) is likely to pass. Here is one possible solution with this runtime complexity. First, there are simple bounds on the 
 answer R: 0 < R < 109. (Because the landing pad may touch three trees on the edge of the field and thus have a distant center,
 we cannot use the bounds on the coordinates to obtain a better bound for R.) We want R to be known with a relative accuracy of 10-4, 
-so about log2 1013 iterations of binary search should suffice: about 43. (This seems like an awfully large number, but the constant factor 
+so about log<sub>2</sub> 1013 iterations of binary search should suffice: about 43. (This seems like an awfully large number, but the constant factor 
 on this solution is relatively small.)
 Given some radius r, how do we determine whether or not a landing pad with radius ≥ r exists? First of all, this is equivalent to 
 finding a circle with radius r which contains no trees in its interior. This is because it is possible to expand it until it touches 
@@ -43,7 +43,7 @@ These values may be sorted (this will take O(N log N) time per invocation), then
 between an adjacent pair of interesting values, the number of points in the interior of the circle stays constant, 
 and if at any time we find this to be zero, then the value of r is validated for the purposes of our binary search.
 Now for runtime analysis: ignoring the factor of log 1/ε for the number of tests, each test consists of O(N) sub-tests 
-(as P covers every tree), each of which is dominated by the O(N log N) sort. So in total we have O(N2 log N).
+(as P covers every tree), each of which is dominated by the O(N log N) sort. So in total we have O(N<sup>2</sup> log N).
 
 100% solution
 In the 25% solution, we considered all triplets of points, testing each in linear time. However, we can do much better by generating a 
