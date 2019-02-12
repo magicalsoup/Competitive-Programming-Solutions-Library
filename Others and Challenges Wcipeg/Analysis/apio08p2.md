@@ -1,8 +1,10 @@
 I claim that the following algorithm may be used to solve this problem:
 
   1.Determine a set of cobblestone roads critical to connectivity. If the number C of such roads is greater than K, there is no solution.
+  
   2.Choose K-C of the remaining, non-critical cobblestone roads such that, when combined with the critical C cobblestone roads, 
     K cobblestone roads are obtained and no cycle is formed.
+    
   3.Choose N-K-1 concrete roads such that, when combined with the K cobblestone roads, a spanning tree is obtained.
   
 If any of these steps fail, there is no solution.
