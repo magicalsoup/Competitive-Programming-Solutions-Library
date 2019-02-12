@@ -2,7 +2,7 @@ Approach 1 – Brute Force – O(N!×N)
 Generate all permutations in which to break the blocks. Simulate the chain reactions when they occur. 
 This is enough to obtain 20% of the points.
 
-Approach 2 – Divide and Conquer – O(N3)
+Approach 2 – Divide and Conquer – O(N<sup>3</sup>)
 A faster solution uses memoization on a divide and conquer principle. T
 he subproblem is determining the cost to knock down every pillar in the range [L, R] 
 given whether pillar L − 1 is broken and whether pillar R + 1 is broken.
@@ -18,11 +18,12 @@ Otherwise, we test every pillar between L and R as the first pillar to knock dow
 The total cost is the cost to break down this pillar, plus the cost to break all the pillars to the left of it, plus the cost to break 
 all of the pillars to the right of it. In other words, we divide the range in half and let recursion handle each side. 
 The minimum cost across all these tests is the answer.
-If we cache the results every time we compute them, we only have O(N2) possible states to consider 
+If we cache the results every time we compute them, we only have O(N<sup>2</sup>) possible states to consider 
 (all possible L values × all possible R values). Each state requires O(N) time to transition 
-(trying to break down each pillar in the range). Overall, the solution is O(N3) and is given 60% of the points.
+(trying to break down each pillar in the range). Overall, the solution is O(N<sup>3</sup>) and is given 60% of the points.
 
 60% Solution (C++)
+```cpp
 #include <cstdio>
 #include <cstring>
 using namespace std;
@@ -65,6 +66,7 @@ int main() {
   printf("%Ld\n", solve(1, N, 0, 0));
   return 0;
 }
+```
 Approach 3 – Dynamic Programming – O(N)
 To get full marks, we abandon recursion altogether and go for pure dynamic programming. 
 This problem displays optimal substructure in the following way. Consider the base case where we only want to break only the first 
@@ -95,7 +97,7 @@ the pillar before it is not knocked down (i.e. [i − 1][1]): Here, there is no 
 so the extra cost to break one more pillar (the current one) is just its durability Di minus the damage done by the next pillar Wi + 1.
 The following is my solution implementing this exact idea.
 
-Official Solution (C++)
+```cpp
 #include <algorithm>
 #include <cstdio>
 using namespace std;
@@ -116,3 +118,4 @@ int main() {
   printf("%Ld\n", DP[N][0]);
   return 0;
 }
+```
