@@ -2,7 +2,7 @@ Imagine the problem in which we simply add all the numbers in the range given ra
 This can be solved using a two-dimensional binary indexed tree (also called a Fenwick tree, after its inventor, Peter M. Fenwick). 
 Then, both the modify and query operations take log M log N time to execute, which is quite fast enough for that problem. 
 If you don't know what a binary indexed tree is or how it works, 
-head over to the TopCoder tutorial at http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees.
+head over to the TopCoder tutorial at [http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees](http://www.topcoder.com/tc?module=Static&d1=tutorials&d2=binaryIndexedTrees).
 
 For this problem, all we need to do is to maintain two binary indexed trees, one for all of the red squares, 
 and one for all of the black squares (where the upper left corner is arbitrarily either red or black). 
