@@ -9,7 +9,7 @@ It is widely used by standard libraries of many languages, including Mathematica
 Java's [BigInteger.isProbablePrime()](http://developer.classpath.org/doc/java/math/BigInteger-source.html) method, and the [mpz_probab_prime_p()](https://gmplib.org/manual/Number-Theoretic-Functions.html#Number-Theoretic-Functions) function in GMP. Using modular exponentiation by repeated 
 squaring, the algorithm runs in O(k log<sup>3</sup>N), where k is the number of iterations performed. The Miller-Rabin test is always correct in 
 determining whether a prime number is prime, however if the number is composite, the probability of it incorrectly returning prime is 
-(1/4)k. Thus, for k = 20, the probability of failure is 0.2520 ≈ 9.1×10<sup>−13</sup>t (one in a trillion), and is extremely low. 
+(1/4)k. Thus, for k = 20, the probability of failure is 0.2520 ≈ 9.1×10<sup>−13</sup> (one in a trillion), and is extremely low. 
 The running time is therefore 20*log<sup>3</sup>(2<sup>63</sup>−1)) ≈ 1.6 million. In practice, the program is much faster and should definitely run in 
 2 seconds if we are only required to test 100 numbers. If this is still not fast enough, note that even performing as few as k = 10 
 iterations should be accurate enough 
