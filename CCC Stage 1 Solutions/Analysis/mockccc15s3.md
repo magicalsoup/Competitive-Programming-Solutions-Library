@@ -13,17 +13,19 @@ count by two.
 
 The hardest part of this problem is finding a way to see if two line segments intersect. A clean way is by using the cross product. 
 This article explains line segment intersections using cross products well: 
-http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/.
+
+[http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/](http://www.geeksforgeeks.org/check-if-two-given-line-segments-intersect/).
+
 Be aware that when calculating the cross product, multiplications will almost certainly go out of bounds. 
 We can use a 64-bit integer in the process, or just worry about the sign of the cross product (since that's all that's needed).
 
-The following code takes advantage of C++'s library function std::next_permutation to generate the permutations of points, 
+The following code takes advantage of C++'s library function ```std::next_permutation``` to generate the permutations of points, 
 but you are also free to use recursive backtracking to generate the permutations too. 
 Theoretically, the algorithm takes O(N!×N2) time to run. However, if we analyze the running time more precisely, 
 we only have to permute at most N−1 = 9 numbers. For each permutation, we only have to check N(N + 1)/2 = 10*11/2 = 55 segments. 
 Overall, this is 9!*55 ≈ 20 million steps, which is fast enough to pass in time.
 
-Official Solution (C++)
+```cpp
 #include <algorithm>
 #include <iostream>
 using namespace std;
@@ -63,3 +65,4 @@ int main() {
   cout << ans / 2 << endl;
   return 0;
 }
+```
