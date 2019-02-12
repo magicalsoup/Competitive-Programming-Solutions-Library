@@ -1,5 +1,7 @@
 One might be tempted to look up an algorithm on Google.
+
 However, the problem statement subtlely hints at a solution with the emphasized area formula.
+
 (This area is derived from the cross product, see Wikipedia if you're curious)
 
 If a point is inside a triangle, the three triangles it makes with the sides of the triangle should add up to the big triangle.
@@ -9,6 +11,7 @@ Otherwise, the area of the three 'subtriangles' will be too big:
 
 This leads to a very simple solution (with some macros to make life easier).
 
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -44,3 +47,4 @@ int main()
 	
 	cout << count << endl;
 }
+```
