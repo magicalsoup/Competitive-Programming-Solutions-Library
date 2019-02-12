@@ -15,6 +15,7 @@ f and only if x = x1 = x2 and y lies between y1 and y2. Since there are N points
 so the running time is O(NM). This straightforward idea will get 60% of the points.
 
 60% Solution – Brute Force (C++)
+```cpp
 #include <algorithm>
 #include <cstdio>
 using namespace std;
@@ -38,6 +39,7 @@ int main() {
   printf("%Ld\n", ans);
   return 0;
 }
+```
 To get full marks, we can introduce a technique called coordinate compression. Essentially, we want to reduce the magnitude of the x 
 and y coordinates for all of the points while preserving their relative values. Consider only the 1D case where we have a list of 
 numbers, say {1598, 2004, 4853, 2004, 1598, 9001}, and we would like to use smaller values to represent them. We can first remove 
@@ -69,6 +71,7 @@ The following is a slightly long-winded solution – first compressing the point
 arrays of lists (indexed by x and y respectively).
 
 100% Solution - Coordinate Compression and Binary Search (C++)
+```cpp
 #include <algorithm>
 #include <cstdio>
 #include <map>
@@ -120,6 +123,7 @@ int main() {
   printf("%Ld\n", ans);
   return 0;
 }
+```
 Finally, we observe that we don't even need to index the coordinates by x- or y-, as long as we sort them by x, then by y when x's are 
 equal for h[] (by y, then by x when y's are equal for v[]). This way, we can just binary search on the endpoints of the segment and 
 achieve the same result. Theoretically, the complexity is still the same O(M log(N + M)). Since we don't have to access points by array 
@@ -127,7 +131,7 @@ indices, we eliminate the need to compress them in the first place! The slightly
 probably counterbalances the original linearithmic time to coordinate compress, making it even faster in practice. 
 The following is an extremely concise official solution.
 
-Official Solution (C++)
+```cpp
 #include <algorithm>
 #include <cstdio>
 #include <vector>
@@ -166,3 +170,4 @@ int main() {
   printf("%Ld\n", ans);
   return 0;
 }
+```
