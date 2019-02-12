@@ -9,7 +9,7 @@ To cut down on a few comparisons however, only snowflakes equal in the sum of th
 otherwise they cannot be identical snowflakes.
 
 For example, if given two snowflakes:
-
+```
 1 2 3 4 5 6
 6 5 4 3 2 1
 
@@ -22,7 +22,7 @@ so we would check
 5 6 1 2 3 4
 
 etc ...
-
+```
 If at ANY point we find a match, then we have found twin snowflakes and we're done!
 
 If we go through every possible rotation of a snowflake and no match has been found, then we add it to our set/map of snowflakes and 
