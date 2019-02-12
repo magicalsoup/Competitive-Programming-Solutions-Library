@@ -19,5 +19,5 @@ possibilities. See jargon's solution for an implementation of this technique.
 
 This is not the final word, though. It turns out that we can almost solve this problem in polynomial time by transforming it into a linear 
 algebra problem and applying Gaussian elimination. See here for a discussion of the mathematics behind this approach. This is guaranteed 
-to find a solution or determine that none exists in O(n3) time, but the requirement of solving in the minimum number of moves complicates 
+to find a solution or determine that none exists in O(n<sup>3</sup>) time, but the requirement of solving in the minimum number of moves complicates 
 matters for some board sizes...
