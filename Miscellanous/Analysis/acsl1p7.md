@@ -22,21 +22,25 @@ there are three squares in a row in the net, its two ends are candidate opposite
 as do 2 and 6.
 
 However, in the straight hexomino, which might be represented
-
+```
 1 2 3 4 5 6
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
+```
 the square 3 has two candidate opposites (1 and 5), as does 4 (2 and 6). So this is not a valid cube net. Likewise, in a net such as
 
+```
 1 2 3 0 0 0
 4 5 6 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
 0 0 0 0 0 0
+
+```
 the square 2 has no candidate opposite. If we walk left first, then no matter how many steps we take up or down, we won't be able to 
 walk left again; similarly we can't walk up, down, or right either as a first step, without leaving the net at some point. 
 (The square 5 also has no candidate opposite.) So this is not a valid cube net, either.
