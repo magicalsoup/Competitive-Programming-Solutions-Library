@@ -21,4 +21,4 @@ How can you quickly compute hi,j, if you know the answer for all triangles below
     If the character at (i, j) is #, but the character at (i + 1, j) isn't, then hi,j = 1.
     Otherwise, hi,j = 1 + min(hL, hR).
 ``` 
-We can build this table from the bottom up, in time O(N2).
+We can build this table from the bottom up, in time O(N<sup>2</sup>).
