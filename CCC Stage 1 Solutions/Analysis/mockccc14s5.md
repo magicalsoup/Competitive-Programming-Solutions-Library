@@ -50,9 +50,10 @@ We can use the O(E*|f|) Ford-Fulkerson algorithm to compute the max-flow, where 
 Here, the maximum number of edges is: N (source edges) + M (sink edges) + NM (pairing edges) = 100 + 100 + 100×100 = 10200. 
 The max-flow is min(N, M), because that is the maximum pairs of cards we can eliminate. Thus, we have a total running time of 
 O(NM×min(N,M)), and a maximum of 10 000×100 = 1 000 000 operations. In this case, we can a faster version of the Ford-Fulkerson 
-algorithm, the Edmonds-Karp algorithm, although runs in O(VE2), is also bounded by O(E*|f|). Below is the official solution, 
+algorithm, the Edmonds-Karp algorithm, although runs in O(VE<sup>2</sup>), is also bounded by O(E*|f|). Below is the official solution, 
 implementing the Edmonds-Karp algorithm.
 
+```cpp
 #include <algorithm>
 #include <iostream>
 #include <queue>
@@ -129,6 +130,8 @@ int main() {
   cout << 2*edmonds_karp(MAX_V, source, sink) << endl;
   return 0;
 }
+```
+
 6. Maximum Bipartite Matching with Augmenting Paths — O(N×M×min(N,M))
 The augmenting path method to find maximal matchings discussed here runs in O(V×(V+E)). Since V = N+M and E = NM, the 
 final complexity will also end up being along the lines of O(N×M×min(N,M)). Upon examination, 
