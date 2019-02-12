@@ -4,7 +4,7 @@ there may be up to 105 icings, so there may be up to 2.5 trillion operations exe
 
 Another solution would be to store all the icings in an array, and for each query, determine the overlap area between that query and 
 each icing, adding these to obtain that query's answer. Each pair's overlap can be computed in constant time, so the bulk of the time 
-will be spent iterating over the queries and icings, of which there are roughly (105)2 pairs (10 billion). This is an improvement, 
+will be spent iterating over the queries and icings, of which there are roughly (10<sup>5</sup>)<sup>2</sup> pairs (10 billion). This is an improvement, 
 but it is still not fast enough to pass the largest test case.
 
 In the model solution, we will compute the amount of icing that ends up on each square centimetre of the cake — but we shall do so more 
@@ -31,9 +31,10 @@ same as the process used to convert the difference array to the "actual" array. 
 inclusion and exclusion on the prefix sum array; any box in the cake can be represented by adding and subtracting boxes that have their 
 lower-right corners at the origin (boxes whose sums we have already computed).
 
-Implementation
+## Implementation
 Code by Brian Bi:
 
+```cpp
 #include <cstdio>
 int main()
 {
@@ -64,5 +65,7 @@ int main()
     }
     return 0;
 }
-Complexity
+
+```
+## Complexity
 It is obvious from reading the code above that the complexity of this solution is O(MN+K+Q).
