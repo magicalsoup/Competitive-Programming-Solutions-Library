@@ -9,7 +9,7 @@ we then cannot confirm whether the input was originally the right number of digi
 The fact that the input may have involved area codes that weren't 3 digits long is both implied by the 9 digit limitation, and explicitly 
 stated by the "4161 596111" example in the description.
 
-Official Solution (C++)
+```cpp
 #include <iostream>
 using namespace std;
 
@@ -26,3 +26,4 @@ int main() {
   }
   return 0;
 }
+```
