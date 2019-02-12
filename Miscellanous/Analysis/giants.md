@@ -13,4 +13,4 @@ altitude while increasing the slope of the path, such that the new "rotated" pat
 this way until it meets another endpoint. By doing so, we preserve the number of giants destroyed, while having a lower starting altitude.
 
 Since we have determined that the optimal path must pass through at least 2 points, we can try every pair of endpoints as points on a path 
-and pick the best one. This leads to a O(G^3) solution, well within the constraints.
+and pick the best one. This leads to a O(G<sup>3</sup>) solution, well within the constraints.
