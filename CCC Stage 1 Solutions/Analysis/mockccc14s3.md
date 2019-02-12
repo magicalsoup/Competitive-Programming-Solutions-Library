@@ -3,7 +3,8 @@ Many languages support stable sort natively. In C++, std::stable_sort() is found
 merge sort, which is stable. In the implementation below, we store the rows as vectors so they can be swapped easily. 
 To process the sorts, we define a special compare that only examines rows by the column that's being clicked at the time.
 
-Official Solution (C++) - std::stable_sort()
+```cpp
+std::stable_sort()
 #include <algorithm>
 #include <iostream>
 #include <vector>
@@ -84,3 +85,4 @@ int main() {
   }
   return 0;
 }
+```
