@@ -6,7 +6,7 @@ A simple way to solve this is by observing that the question limits the answer t
 loop from 0 to 100 and try all possible values of M to see if they round to a value of Q or above. In a timed contest, 
 this idea is the simplest and leaves the smallest room for error. The following source code implements this idea.
 
-Official Solution (C++)
+```cpp
 #include <iostream>
 #include <cstdio>
 using namespace std;
@@ -25,3 +25,4 @@ int main() {
   cout << "DROP THE COURSE" << endl;
   return 0;
 }
+```
