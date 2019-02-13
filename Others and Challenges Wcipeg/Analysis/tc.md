@@ -2,7 +2,11 @@ This problem is most similar to Pinball Ranking from the CCC.
 
 First of all, let's sort the input data in increasing order of Algorithm rating. (We will need to use something like a pair to do this, 
 and we also need to keep track of the original positions of each item in the input data, the numerical IDs of the coders - 
-my solution uses a pair<pair<int,int>,int> for this purpose.
+my solution uses a 
+```cpp
+pair<pair<int,int>,int>
+``` 
+for this purpose.
 
 Now, we break the list of coders up into "chunks". Within each chunk, all coders have the same algorithm rating, 
 but may have different TCHS ratings. Note that each chunk will be sorted in increasing order of TCHS rating as well.
