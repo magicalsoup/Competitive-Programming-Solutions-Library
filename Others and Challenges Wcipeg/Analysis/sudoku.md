@@ -1,8 +1,8 @@
 This problem is probably most easily solved through a well-optimized combination of recursive brute force and "reasoning" techniques. 
 A typical procedure might look something like:
 
-  1.Fill in naked/hidden singles until it is no longer possible to do so;
-  2.Choose a square with as few possibilities as possible, and try one of them; recurse and go back to step 1.
+  1. Fill in naked/hidden singles until it is no longer possible to do so;
+  2. Choose a square with as few possibilities as possible, and try one of them; recurse and go back to step 1.
   
 It is also possible to solve this problem efficiently with Algorithm X with Dancing Links, a technique for solving the exact cover problem 
 proposed by Donald Knuth. Sudoku has an exact cover representation, hence it can be solved efficiently. The exact cover matrix for Sudoku 
