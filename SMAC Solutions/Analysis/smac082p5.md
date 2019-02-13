@@ -1,22 +1,26 @@
-Intelligent Stats (Guru):
+## Intelligent Stats (Guru)
 
 I made this question after writing the advanced problem 'Infinite Degrees of Separation', so when I made this question I was too caught 
 up in thinking about the graphs from advanced. I somehow had it in my mind that I had enforced every undirected cycle to be in the same 
 direction, like so:
 
+```
 O<----O
 |     ^
 |     |
 v     |
 O---->O
+```
 
 But, of course the question allows for undirected cycles such as these:
 
+```
 O---->O
 |     |
 |     |
 v     v
 O---->O
+```
 
 If I had made it the first case, the problem would have been reducible to a Dynamic Programming problem that should be solvable on 
 N = 100,000. I won't explain this because maybe I'll try this again later (it's actually related to The Dark's solution).
@@ -25,7 +29,7 @@ However, since that was not the case, after finding out that there's no current 
 10,000.
 
 
-Algorithm:
+## Algorithm
 
 With N = 10,000, this is no longer a "Guru" problem, and actually pretty straight-forward. 
 
@@ -47,7 +51,7 @@ Have efficient lookup and storage of names.
 Watch your memory allocation!
 
 
-Efficient Lookup and Storage of Names:
+## Efficient Lookup and Storage of Names
 
 What we want to do is associate every name with its own distinct integer. That way we no longer need to worry about names-- 
 only the integer that represents a name.
@@ -76,7 +80,7 @@ The third method is even faster. It's not hard to write a Hash Table with a sing
 
 The fourth method is the fastest possible method. The time it takes to lookup and store an integer for a string is constant per letter! 
 It's also very easy to write. You create a tree that branches to represent all possible alphanumeric strings of length 20 
-(so a tree with 62^20 nodes). But 62^20 is far too large, so we only create the nodes as they are looked at and needed. 
+(so a tree with 62<sup>20</sup> nodes). But 62<sup>20</sup> is far too large, so we only create the nodes as they are looked at and needed. 
 Each word has its own path down the tree, and thus its own terminating vertex. 
 The terminating vertex is used to hold the associated integer for that string.
 
@@ -84,7 +88,7 @@ This method is very memory inefficient for randomized data, but 128 MB of memory
 cooler.
 
 
-Watch Your Memory Allocation!:
+## Watch Your Memory Allocation!
 
 Memory allocation is fine until you are allocating and deallocating large blocks of 10000+ bytes repeatedly. 
 This really starts to take a huge toll on your run-time.
