@@ -1,28 +1,41 @@
 import java.util.*;
-
-public class ccc00s2{
-  static Scanner scan = new Scanner(System.in);
-
-  public static void main (String[] args) {
-    ArrayList<Float> a = new ArrayList<Float>();
-    for (int x = scan.nextInt(); x > 0; x--)
-      a.add((float)scan.nextInt());
-    int x = scan.nextInt();
-    while (x != 77) {
-      if (x == 99) {
-        int index = scan.nextInt() - 1;
-        int percent = scan.nextInt();
-        a.add(index + 1, (float)(a.get(index) * ((100.0 - percent)) / 100.0));
-        a.set(index, (float)(a.get(index) * (percent / 100.0)));
-      } else {
-        int index = scan.nextInt() - 1;
-        a.set(index, a.get(index) + a.get(index + 1));
-        a.remove(index + 1);
-      }
-      x = scan.nextInt();
-    }
-    for (x = 0; x < a.size(); x++) {
-      System.out.print(Math.round(a.get(x)) + " ");
-    }
-  }
+import java.io.*;
+public class ccc00s2 {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	static StringTokenizer st;
+	public static void main(String[]args) throws IOException{
+		ArrayList<Double> rivers = new ArrayList<Double>();
+		int n = readInt(); for(int i = 0; i < n; i++) rivers.add(readDouble());
+		while(true) {
+			int op = readInt();
+			if(op == 77) break;
+			if(op == 99) {
+				int idx = readInt() - 1;
+				double percent = readDouble();
+				rivers.add(idx + 1, rivers.get(idx)  * (100 - percent) / 100.0);
+				rivers.set(idx, rivers.get(idx) * (percent / 100.0 ));
+			}
+			if(op == 88) {
+				int idx = readInt() - 1;
+				rivers.set(idx, rivers.get(idx) + rivers.get(idx + 1));
+				rivers.remove(idx + 1);
+			}
+		}
+		for(Double d : rivers) 
+			System.out.print(Math.round(d) + " ");
+	}
+	static String next() throws IOException{
+		while(st == null || !st.hasMoreTokens())
+			st = new StringTokenizer(br.readLine().trim());
+		return st.nextToken();
+	}
+	static int readInt() throws IOException{
+		return Integer.parseInt(next());
+	}
+	static double readDouble() throws IOException{
+		return Double.parseDouble(next());
+	}
+	static String readLine() throws IOException{
+		return br.readLine().trim();
+	}
 }
