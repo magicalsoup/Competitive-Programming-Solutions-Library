@@ -2,9 +2,7 @@
   Solutions for various contest CCC, CCO, NOI, Dwite, IOI .etc.  
   # Websites  
   >[DMOJ](https://dmoj.ca/) , [WCIPEG](https://wcipeg.com/main), [Douwei](http://159.203.38.243/JudgeOnline/).  
-  
-  # Usernames 
-  >[magicalsoup(WCIPEG)](https://wcipeg.com/user/magicalsoup), [amagicalsoup4(DMOJ)](https://dmoj.ca/user)
+
   
   # Disclaimer :  
   >All solutions that are on wcipeg work on Wcipeg, but may fail on edge cases.  
