@@ -5,4 +5,4 @@
 > ccc08s2 --> CCC Stage 1 2008 Senior question 2  
 
 ## Clarifications
-> For clarifications, go to [WCIPEG](https://wcipeg.com/main) or [DMOJ](https://dmoj.ca/) for codes to match the file that you want
+> For clarifications, go to [DMOJ](https://dmoj.ca/) for codes to match the file that you want.
